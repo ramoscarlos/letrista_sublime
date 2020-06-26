@@ -1,0 +1,44 @@
+%YAML 1.2
+---
+name: Letra
+file_extensions:
+  - e37
+scope: text.letra
+first_line_match: '^\[(Titulo|Título)\]\n'
+
+contexts:
+  main:
+    - include: lineas_eliminadas
+    - include: seccion
+    - include: tipo_rima
+    - include: cantidad_silabas
+    - include: nota_rima
+    - include: descarte
+
+  seccion:
+    - match: '^\[(Título|Titulo|Verso|Coro|Puente|Intro|Outro)(R)?\](\s)*\n'
+      scope: entity.name.namespace.letra
+
+  tipo_rima:
+    - match: '^[A-Z]\b'
+      scope: keyword.control.letra
+
+  cantidad_silabas:
+    - match: '\b(\-)?[0-9]+\b'
+      scope: constant.numeric.letra
+
+  nota_rima:
+    - match: '\^[0-9]+'
+      scope: markup.quote.letra
+
+  lineas_eliminadas:
+    - match: '^.{1}\-'
+      scope: punctuation.definition.comment
+      push:
+        - meta_scope: comment.line.double-slash.letra
+        - match: $\n?
+          pop: true
+
+  descarte:
+    - match: '^\*{5,}(\s)*'
+      scope: invalid.illegal.letra
