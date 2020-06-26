@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+[${1:Verso}]
+X 00 $2
+X 00 
+X 00 
+X 00 
+]]></content>
+	<tabTrigger>ss</tabTrigger>
+	<scope>text.letra</scope>
+</snippet>
