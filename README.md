@@ -1,11 +1,18 @@
-# sublime-letrista
-Paquete de Sublime Text 3 para edición de letras de canciones.
+# Letrista
 
-# Atajos de teclado
+_Letrista_ es un paquete de Sublime Text 3 para edición de letras de canciones.
+
+Contiene varios comandos para 
+
+## Comandos
+
+
+
+## Atajos de teclado
 
 `Ctl + /` - Comentar líneas.  
 
-# Snippets
+## Snippets
 
 `ss` - Genera una sección de cuatro líneas.  
 `ll` - Genera el inicio con rima indeterminada y cero sílabas.  
