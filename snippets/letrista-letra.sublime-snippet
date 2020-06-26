@@ -1,0 +1,39 @@
+<snippet>
+	<content><![CDATA[
+[Titulo]
+X $1
+
+[Verso]
+X 00 $2
+X 00 
+X 00 
+X 00 
+
+[Coro]
+X 00 
+X 00 
+X 00 
+X 00 
+
+[Verso]
+X 00 
+X 00 
+X 00 
+X 00 
+
+[CoroR]
+
+[Puente]
+X 00 
+X 00 
+X 00 
+
+[CoroR]
+
+******************************
+
+
+]]></content>
+	<tabTrigger>lll</tabTrigger>
+	<scope>text.letra</scope>
+</snippet>
