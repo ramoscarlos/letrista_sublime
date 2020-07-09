@@ -2,15 +2,13 @@
 
 _Letrista_ es un paquete de Sublime Text 3 para edición de letras de canciones.
 
-Contiene varios comandos para 
-
 ## Comandos
 
-
+`abrir_letra_markdown_preview` - Abre una vista a la derecha con la letra sin comentarios, en formato Markdown.
 
 ## Atajos de teclado
 
-`Ctl + /` - Comentar líneas.  
+`Ctl + /` - Comentar/descomentar líneas.  
 
 ## Snippets
 

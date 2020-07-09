@@ -24,7 +24,7 @@ contexts:
       scope: keyword.control.letra
 
   cantidad_silabas:
-    - match: '\b(\-)?[0-9]+\b'
+    - match: '\b([0-9]{1,2}|__)\b'
       scope: constant.numeric.letra
 
   nota_rima:

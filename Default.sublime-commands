@@ -1,0 +1,10 @@
+[
+	{
+		"caption": "Letrista: Abrir preview en Markdown",
+		"command": "abrir_letra_markdown_preview"
+	},
+	{
+		"caption": "Letrista: Comentar/descomentar líneas",
+		"command": "comentar_letra_toggle"
+	}
+]
