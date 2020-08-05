@@ -166,3 +166,14 @@ class LetraEnMarkdown(LetraParaImprimir):
         "Puente":  {"pre": "_",   "post": "_"  },
         "Outro":   {"pre": "_**", "post": "**_"},
     }
+
+class LetraParaWhatsApp(LetraParaImprimir):
+    FORMATO_LINEA = {
+        "Titulo":  {"pre": "```", "post": "```"},
+        "Intro":   {"pre": "_*", "post": "*_"},
+        "Verso":   {},
+        "Precoro": {"pre": "*",  "post": "*" },
+        "Coro":    {"pre": "*",  "post": "*" },
+        "Puente":  {"pre": "_",   "post": "_"  },
+        "Outro":   {"pre": "_*", "post": "*_"},
+    }
