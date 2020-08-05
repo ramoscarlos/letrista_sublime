@@ -14,6 +14,7 @@ contexts:
     - include: cantidad_silabas
     - include: nota_rima
     - include: descarte
+    - include: estructura
 
   seccion:
     - match: '^\[(Título|Titulo|Verso|Coro|Puente|Intro|Outro)(R)?\](\s)*\n'
@@ -41,4 +42,16 @@ contexts:
 
   descarte:
     - match: '^\*{5,}(\s)*'
-      scope: invalid.illegal.letra
+      push:
+        - meta_scope: sublimelinter.outline.violation
+        - match: $\n?
+          pop: true
+
+  # Esto hace referencia a donde se define la estructura,
+  # el tópico que trata cada una de las secciones.
+  estructura:
+    - match: '^ESTRUCTURA \['
+      push:
+        - meta_scope: invalid.illegal.letra
+        - match: \]
+          pop: true
