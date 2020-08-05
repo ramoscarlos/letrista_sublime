@@ -3,5 +3,15 @@
       "keys": ["ctrl+/"],
       "command": "comentar_letra_toggle",
       "context": [ { "key": "selector", "operator": "equal", "operand": "text.letra" } ]
-    }
+    },
+    {
+      "keys": ["ctrl+shift+l"],
+      "command": "insertar_linea",
+      "context": [ { "key": "selector", "operator": "equal", "operand": "text.letra" } ]
+    },
+    {
+      "keys": ["ctrl+shift+c"],
+      "command": "clonar_comentar_linea",
+      "context": [ { "key": "selector", "operator": "equal", "operand": "text.letra" } ]
+    },
 ]

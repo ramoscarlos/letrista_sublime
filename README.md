@@ -9,6 +9,8 @@ _Letrista_ es un paquete de Sublime Text 3 para edición de letras de canciones.
 ## Atajos de teclado
 
 `Ctl + /` - Comentar/descomentar líneas.  
+`Ctl + Shift + l` - Insertar línea con texto "X 00 " debajo de la selección actual.  
+`Ctl + Shift + c` - Clonar línea actual y comentarla justo debajo.  
 
 ## Snippets
 

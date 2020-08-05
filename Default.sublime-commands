@@ -7,4 +7,9 @@
 		"caption": "Letrista: Comentar/descomentar líneas",
 		"command": "comentar_letra_toggle"
 	}
+	,
+	{
+		"caption": "Letrista: Clonar y comentar líneas",
+		"command": "clonar_comentar_linea"
+	}
 ]
