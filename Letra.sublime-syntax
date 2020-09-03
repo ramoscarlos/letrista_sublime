@@ -17,7 +17,7 @@ contexts:
     - include: estructura
 
   seccion:
-    - match: '^\[(Título|Titulo|Verso|Coro|Puente|Intro|Outro)(R)?\](\s)*\n'
+    - match: '^\[(Título|Titulo|Verso|Coro|Precoro|Puente|Intro|Outro)(R)?\](\s)*\n'
       scope: entity.name.namespace.letra
 
   tipo_rima:

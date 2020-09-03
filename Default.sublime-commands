@@ -12,4 +12,9 @@
 		"caption": "Letrista: Clonar y comentar líneas",
 		"command": "clonar_comentar_linea"
 	}
+	,
+	{
+		"caption": "Letrista: Agregar rima y sílabas a líneas",
+		"command": "colocar_silabas"
+	}
 ]

@@ -23,10 +23,11 @@ class Linea:
     """
 
     # Constantes para tipo de línea.
-    TIPO_SILABAS = 1 # "X ## letra" -- Incluye el conteo de sílabas
-    TIPO_RIMA = 2    # "X letra"    -- Incluye el tipo de rima
-    TIPO_SALTO = 3   # "\n"         -- Es un salto de línea
-    TIPO_TEXTO = 4   # "letra"      -- Es solo el texto de la letra
+    TIPO_SILABAS = 1     # "X ## letra" -- Incluye el conteo de sílabas
+    TIPO_RIMA = 2        # "X letra"    -- Incluye el tipo de rima
+    TIPO_SALTO = 3       # "\n"         -- Es un salto de línea
+    TIPO_TEXTO = 4       # "letra"      -- Es solo el texto de la letra
+    TIPO_INSTRUCCION = 5 # "["          -- Línea que empieza con corchetes.
 
     def __init__(self, texto):
         """Establece el texto completo, con indicadores, de la línea."""
@@ -52,6 +53,25 @@ class Linea:
         return self._texto
 
     @property
+    def texto_con_rima_y_silabas(self):
+        tipo = self.tipo
+
+        # Si la línea ya tiene conteo silábico, no es necesario hacer nada.
+        if tipo == self.TIPO_SILABAS:
+            self._texto_con_rima_silabas = self._texto_original
+        # Si es instrucción o salto de línea, tampoco hacemos nada.
+        elif tipo == self.TIPO_SALTO or tipo == self.TIPO_INSTRUCCION:
+            self._texto_con_rima_silabas = self._texto_original
+        # Si solamente tiene la rima, agregamos el conteo silábico
+        elif tipo == self.TIPO_RIMA:
+            self._texto_con_rima_silabas = self._texto_original[0] + " 00 " + self._texto_original[2:]
+        # Si no tiene ninguna de las anteriores, agregamos rima y sílabas.
+        else:
+            self._texto_con_rima_silabas = "X 00 " + self._texto_original
+
+        return self._texto_con_rima_silabas
+
+    @property
     def tipo(self):
         """
         Define el tipo de línea entre cuatro posibles, cuyo estilo está
@@ -63,6 +83,8 @@ class Linea:
             self._tipo = self.TIPO_RIMA
         elif self.__esSaltoDeLinea():
             self._tipo = self.TIPO_SALTO
+        elif self.__esInstruccion():
+            self._tipo = self.TIPO_INSTRUCCION
         else:
             self._tipo = self.TIPO_TEXTO
 
@@ -100,7 +122,13 @@ class Linea:
 
     @property
     def cantidad_de_palabras(self):
-        self._cantidad_de_palabras = len(self._texto_original.split())
+        tipo = self.tipo
+
+        if tipo in [self.TIPO_SILABAS, self.TIPO_RIMA, self.TIPO_TEXTO]:
+            self._cantidad_de_palabras = len(self.texto.split())
+        else:
+            # Tipo debe ser salto o instrucción, así que regresamos 0
+            self._cantidad_de_palabras = 0
 
         return self._cantidad_de_palabras
 
@@ -148,6 +176,18 @@ class Linea:
         Determina si una línea contiene solo espacios y nada de texto.
         """
         if self._texto_original.strip() == '':
+            return True
+
+        return False
+
+    def __esInstruccion(self):
+        """
+        Determina si una línea es instrucción
+        """
+        if len(self._texto_original) < 1:
+            return False
+
+        if self._texto_original[0] == '[':
             return True
 
         return False

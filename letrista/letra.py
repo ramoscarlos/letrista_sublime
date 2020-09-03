@@ -8,7 +8,7 @@ class Letra:
     """
     """
 
-    SECCIONES_VALIDAS = ["Titulo", "Intro", "Verso", "Precoro", "Coro", "Puente", "Outro"]
+    SECCIONES_VALIDAS = ["Título", "Titulo", "Intro", "Verso", "Precoro", "Coro", "Puente", "Outro"]
 
     def __init__(self, letra):
         self.secciones = []
@@ -17,8 +17,17 @@ class Letra:
 
         self.__procesar()
 
-    # Funciones de procesamiento interno.
+    @property
+    def cantidad_de_palabras(self):
+        cantidad_de_palabras = 0
+        for seccion in self.secciones:
+            cantidad_de_palabras = cantidad_de_palabras + seccion.cantidad_de_palabras
 
+        self._cantidad_de_palabras = cantidad_de_palabras
+
+        return self._cantidad_de_palabras
+
+    # Funciones de procesamiento interno.
     def __procesar(self):
         seccion = None
         for line in self._letra.split('\n'):

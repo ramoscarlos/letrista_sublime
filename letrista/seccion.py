@@ -49,5 +49,16 @@ class Seccion:
         return 0
 
     @property
+    def cantidad_de_palabras(self):
+        cantidad_de_palabras = 0
+        for line in self.lineas:
+            if self.tipo not in ["Titulo", "Título"]:
+                cantidad_de_palabras = cantidad_de_palabras + line.cantidad_de_palabras
+
+        self._cantidad_de_palabras = cantidad_de_palabras
+
+        return self._cantidad_de_palabras
+
+    @property
     def tipo(self):
         return self._tipo

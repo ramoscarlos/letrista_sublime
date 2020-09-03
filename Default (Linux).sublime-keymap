@@ -19,4 +19,9 @@
       "command": "abrir_letra_markdown_preview",
       "context": [ { "key": "selector", "operator": "equal", "operand": "text.letra" } ]
     },
+    {
+      "keys": ["ctrl+k", "ctrl+c"],
+      "command": "colocar_silabas",
+      "context": [ { "key": "selector", "operator": "equal", "operand": "text.letra" } ]
+    },
 ]
