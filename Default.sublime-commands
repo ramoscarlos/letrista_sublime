@@ -17,4 +17,9 @@
 		"caption": "Letrista: Agregar rima y sílabas a líneas",
 		"command": "colocar_silabas"
 	}
+	,
+	{
+		"caption": "Letrista: Contar palabras (es necesario abrir consola)",
+		"command": "contar_palabras"
+	}
 ]
