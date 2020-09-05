@@ -5,7 +5,7 @@
       "context": [ { "key": "selector", "operator": "equal", "operand": "text.letra" } ]
     },
     {
-      "keys": ["ctrl+shift+l"],
+      "keys": ["ctrl+shift+j"],
       "command": "insertar_linea",
       "context": [ { "key": "selector", "operator": "equal", "operand": "text.letra" } ]
     },
