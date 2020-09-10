@@ -13,8 +13,7 @@ contexts:
     - include: tipo_rima
     - include: cantidad_silabas
     - include: nota_rima
-    - include: descarte
-    - include: estructura
+    - include: notas_adicionales
 
   seccion:
     - match: '^\[(Título|Titulo|Verso|Coro|Precoro|Puente|Intro|Outro)(R)?\](\s)*\n'
@@ -40,6 +39,13 @@ contexts:
         - match: $\n?
           pop: true
 
+  # Contenedor para el estilo que, en teoría, se debería aplicar al descarte solamente.
+  notas_adicionales:
+    - include: descarte
+    - include: estructura
+    - include: titulo_markdown
+
+  # Línea de descarte.
   descarte:
     - match: '^\*{5,}(\s)*'
       push:
@@ -55,3 +61,8 @@ contexts:
         - meta_scope: invalid.illegal.letra
         - match: \]
           pop: true
+
+  # Usar el "#" para marcar un título, al estilo markdown.
+  titulo_markdown:
+    - match: '^\#.*\n'
+      scope: markup.heading
