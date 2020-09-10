@@ -10,7 +10,7 @@ _Letrista_ es un paquete de Sublime Text 3 para edición de letras de canciones.
 
 `Ctrl + K, Ctrl + M` - Abrir previsualización en Markdown.  
 `Ctrl + /` - Comentar/descomentar líneas.  
-`Ctrl + Shift + L` - Insertar línea con texto "X 00 " debajo de la selección actual.  
+`Ctrl + Shift + J` - Insertar línea con texto "X 00 " debajo de la selección actual.  
 `Ctrl + Shift + C` - Clonar línea actual y comentarla justo debajo.  
 
 ## Snippets
