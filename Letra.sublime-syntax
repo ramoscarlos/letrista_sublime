@@ -28,7 +28,7 @@ contexts:
       scope: constant.numeric.letra
 
   nota_rima:
-    - match: '\^[0-9]+'
+    - match: '\^[A-Z0-9]+'
       scope: markup.quote.letra
 
   lineas_eliminadas:

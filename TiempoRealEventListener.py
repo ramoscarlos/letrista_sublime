@@ -1,6 +1,8 @@
 """
 PENDIENTES:
-    Si el grupo de previsualizaciones se queda vacío, cerrar el grupo.
+    - Si el grupo de previsualizaciones se queda vacío, cerrar el grupo.
+    - Al querer abrir una letra con Ctl+Shift+P, se abre en automático el preview
+      y ya no deja seguir escribiendo para encontrar el archivo (corregir el focus)
 """
 
 import sublime
@@ -44,8 +46,6 @@ class TiempoRealViewEventListener(sublime_plugin.ViewEventListener):
 
     def __recuperarVistaDePreview(self):
         preview_view_id = self.view.settings().get("preview_view_id")
-        print("View name is: " + self.view.name())
-        print("View filename is: " + self.view.file_name())
         for vista in self.view.window().views():
             if vista.id() == preview_view_id:
                 return vista

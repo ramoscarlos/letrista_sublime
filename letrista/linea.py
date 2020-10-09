@@ -48,7 +48,7 @@ class Linea:
             self._texto = self._texto_original.strip()
 
         # Eliminar notas de rima interna mediante expresiones regulares.
-        self._texto = re.sub('\^[0-9]+', '', self._texto)
+        self._texto = re.sub('\^[0-9A-Z]+', '', self._texto)
 
         return self._texto
 
