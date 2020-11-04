@@ -16,7 +16,7 @@ contexts:
     - include: notas_adicionales
 
   seccion:
-    - match: '^\[(Título|Titulo|Verso|Coro[0-9]?|Precoro|Puente[0-9]?|Intro|Outro)(R)?\](\s)*\n'
+    - match: '^\[(Título|Titulo|Verso|Coro[0-9]?|Precoro[0-9]|Puente[0-9]?|Intro|Outro)(R)?\](\s)*\n'
       scope: entity.name.namespace.letra
 
   tipo_rima:
