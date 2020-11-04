@@ -8,7 +8,15 @@ class Letra:
     """
     """
 
-    SECCIONES_VALIDAS = ["Título", "Titulo", "Intro", "Verso", "Precoro", "Coro", "Puente", "Outro"]
+    SECCIONES_VALIDAS = [
+        "Título", "Titulo",
+        "Intro",
+        "Verso",
+        "Precoro", "Precoro2",
+        "Coro", "Coro2",
+        "Puente", "Puente2",
+        "Outro"
+    ]
 
     def __init__(self, letra):
         self.secciones = []
@@ -143,16 +151,16 @@ class LetraParaImprimir(Letra):
         return (pre + texto + post)
 
     def __seccionPre(self, tipoSeccion):
-        return self.__buscarFormatoEnDict(self.FORMATO_SECCION, tipoSeccion, "pre")
+        return self.__buscarFormatoEnDict(self.FORMATO_SECCION, tipoSeccion.rstrip('1234567890'), "pre")
 
     def __seccionPost(self, tipoSeccion):
-        return self.__buscarFormatoEnDict(self.FORMATO_SECCION, tipoSeccion, "post")
+        return self.__buscarFormatoEnDict(self.FORMATO_SECCION, tipoSeccion.rstrip('1234567890'), "post")
 
     def __lineaPre(self, tipoSeccion):
-        return self.__buscarFormatoEnDict(self.FORMATO_LINEA, tipoSeccion, "pre")
+        return self.__buscarFormatoEnDict(self.FORMATO_LINEA, tipoSeccion.rstrip('1234567890'), "pre")
 
     def __lineaPost(self, tipoSeccion):
-        return self.__buscarFormatoEnDict(self.FORMATO_LINEA, tipoSeccion, "post")
+        return self.__buscarFormatoEnDict(self.FORMATO_LINEA, tipoSeccion.rstrip('1234567890'), "post")
 
     def __buscarFormatoEnDict(self, diccionario, tipoSeccion, posicion):
         if tipoSeccion not in diccionario:
