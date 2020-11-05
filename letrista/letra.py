@@ -111,7 +111,13 @@ class Letra:
         """
         Copia las líneas de una sección en otra, y regresa el objeto de la nueva sección
         """
-        return next((x for x in self.secciones if x.tipo == tipoSeccion), False)
+        seccionExistente = next((x for x in self.secciones if x.tipo == tipoSeccion), False)
+
+        seccionCopia = Seccion(seccionExistente.tipo)
+        for l in seccionExistente.lineas:
+            seccionCopia.agregarLinea(l)
+
+        return seccionCopia
 
 class LetraParaImprimir(Letra):
     def formatear(self):
@@ -134,6 +140,7 @@ class LetraParaImprimir(Letra):
                     texto = texto + post
 
                 lineas.append(texto)
+            lineas.append('')
 
         return lineas
 
