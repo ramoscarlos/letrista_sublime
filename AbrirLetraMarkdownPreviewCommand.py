@@ -27,6 +27,9 @@ class AbrirLetraMarkdownPreviewCommand(sublime_plugin.TextCommand):
             "characters": procesarLetra(self.view),
         })
 
+        # Evitar que se pueda escribir en la vista de visualización.
+        vistaPreview.set_read_only(True)
+
 
     def is_enabled(self):
         return self.view.match_selector(0, "text.letra")

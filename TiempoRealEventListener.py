@@ -38,11 +38,17 @@ class TiempoRealViewEventListener(sublime_plugin.ViewEventListener):
 
         vistaPreview = self.__recuperarVistaDePreview()
         if vistaPreview:
+            # Activar habilidad de escritura
+            vistaPreview.set_read_only(False)
+
             vistaPreview.run_command("select_all")
             vistaPreview.run_command("right_delete")
             vistaPreview.run_command("append", {
                 "characters": procesarLetra(self.view)
             })
+
+            # Evitar que se pueda escribir en la vista de visualización.
+            vistaPreview.set_read_only(True)
 
     def __recuperarVistaDePreview(self):
         preview_view_id = self.view.settings().get("preview_view_id")
