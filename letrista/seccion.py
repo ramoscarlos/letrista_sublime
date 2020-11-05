@@ -27,13 +27,12 @@ class Seccion:
         # Si no es cadena, se asume que es una instancia de "Linea".
         if isinstance(line, str):
             linea = Linea(line)
+        else:
+            linea = line
 
-        # Las líneas vacías no se agregan en dos condiciones:
-        # 1. Para iniciar una sección, o
-        # 2. Cuando la línea anterior también es un salto de línea.
+        # Las líneas vacías no se agregan.
         if linea.tipo == linea.TIPO_SALTO:
-            if len(self.lineas) == 0 or (len(self.lineas) > 1 and self.lineas[-1].tipo == linea.TIPO_SALTO):
-                return
+            return
 
         self.lineas.append(linea)
 
@@ -46,7 +45,7 @@ class Seccion:
             if self.lineas[i].tipo == Linea.TIPO_SALTO:
                 return i
 
-        return 0
+        return len(self.lineas)
 
     @property
     def cantidad_de_palabras(self):
